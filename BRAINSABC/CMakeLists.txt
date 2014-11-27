@@ -1,5 +1,11 @@
 ##- project(BRAINSABC)
 
+#   TBB_ROOT - (as a CMake or environment variable)
+#               The root directory of the TBB implementation found
+#   FIND_LIBRARY_USE_LIB64_PATHS - Global property that controls whether findTBB should search for
+set(FIND_LIBRARY_USE_LIB64_PATHS ON)
+find_package(TBB REQUIRED)
+
 #-----------------------------------------------------------------------------
 # Dependencies.
 #

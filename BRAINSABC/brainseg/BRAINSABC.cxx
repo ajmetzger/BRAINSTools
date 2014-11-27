@@ -320,9 +320,10 @@ CreateTypedMap(const AtlasRegType::StringVector &keys, const AtlasRegType::Strin
   return rval;
 }
 
-
+#include <tbb/task_scheduler_init.h>
 int main(int argc, char * *argv)
 {
+  tbb::task_scheduler_init init;
   PARSE_ARGS;
   BRAINSRegisterAlternateIO();
   const BRAINSUtils::StackPushITKDefaultNumberOfThreads TempDefaultNumberOfThreadsHolder(numberOfThreads);
