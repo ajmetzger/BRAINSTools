@@ -1,11 +1,8 @@
 
 set(proj VTK)
 
-option(USE_VTK_6 "Build using VTK version 6" ON)
-if(USE_VTK_6)
-  set(${proj}_REQUIRED_VERSION "6.10")  #If a required version is necessary, then set this, else leave blank
-  set(VTK_VERSION_MAJOR 6)
-endif()
+set(${proj}_REQUIRED_VERSION "6.10")  #If a required version is necessary, then set this, else leave blank
+set(VTK_VERSION_MAJOR 6)
 
 # Set dependency list
 set(${proj}_DEPENDENCIES "zlib")
@@ -70,8 +67,6 @@ if((NOT DEFINED VTK_DIR OR NOT DEFINED VTK_SOURCE_DIR) AND NOT ${CMAKE_PROJECT_N
       -DVTK_USE_CARBON:BOOL=OFF
       -DVTK_USE_COCOA:BOOL=ON # Default to Cocoa, VTK/CMakeLists.txt will enable Carbon and disable cocoa if needed
       -DVTK_USE_X:BOOL=OFF
-      #-DVTK_USE_RPATH:BOOL=ON # Unused
-      #-DDESIRED_QT_VERSION:STRING=4 # Unused
       -DVTK_USE_GUISUPPORT:BOOL=ON
       -DVTK_USE_QVTK_QTOPENGL:BOOL=${${LOCAL_PROJECT_NAME}_USE_QT}
       -DVTK_USE_QT:BOOL=${${LOCAL_PROJECT_NAME}_USE_QT}    ## VTK5
